@@ -1,5 +1,6 @@
 extends layout.pug
 block content
+  include ./breadcrumb.pug
   h1 ATC 出機檢查成績表
   hr
   //- 前表
@@ -77,6 +78,7 @@ block content
           .input-group-prepend
             span.input-group-text 平板凸輪滾子尺寸
           input(type="text" placeholder="單位\(mm\)").form-control
+
   //- 檢查項目
   table.table
     thead.thead-dark
@@ -86,13 +88,13 @@ block content
         th(scope="col" width="10%") 實際值
         th(scope="col" width="10%") 結果
     tbody 
-      tr
+      tr#th_1
         th(scope="row") 1
         td 換刀時間(TOOL-TOOL).60Hz
         td
-          input(type="text" placeholder="單位\(sec\)").form-control
+          input#input_1_1(type="text" placeholder="單位\(sec\)").form-control
         td
-          input(type="text" placeholder="單位\(sec\)").form-control
+          input#input_1_2(type="text" placeholder="單位\(sec\)").form-control
       tr
         th(scope="row") 2
         td 扣刀角度
@@ -179,7 +181,10 @@ block content
             input(type="text").form-control
       tr
         th(scope="row") 13
-          td ATC 於原點位置之間隙 < 0.2mm<br>(30kg 正向施力放鬆後，量錶歸零反向施力，放鬆後讀取)
+          td 
+            | ATC 於原點位置之間隙 < 0.2mm
+            br
+            | (30kg 正向施力放鬆後，量錶歸零反向施力，放鬆後讀取)
           td
             .input(type="text" placeholder="單位\(mm\)").form-control
           td
@@ -216,3 +221,6 @@ block content
   .row
     .mx-auto
       button(type="button").btn.btn-primary 完成填寫
+
+  script
+    include form.js
