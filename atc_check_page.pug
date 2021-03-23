@@ -85,138 +85,249 @@ block content
       tr
         th(scope="col" width="5%") 編號
         th(scope="col") 檢查項目
+        th(scope="col" width="12%") 參考值
         th(scope="col" width="12%") 實際值
         th(scope="col" width="12%") 結果
     tbody 
-      tr#th_1
+      tr
         th(scope="row") 1
         td 換刀時間(TOOL-TOOL).60Hz
+        td(data-min="" data-max="1.5") < 1.5 sec
         td
-          input#input_1_1(type="text" placeholder="單位\(sec\)").form-control
+          input.input_goted(type="text" placeholder="單位\(sec\)").form-control
+          .invalid-feedback 數值超標
         td
-          input#input_1_2(type="text" placeholder="單位\(sec\)").form-control
+          input.input_result(type="text" placeholder="單位\(sec\)").form-control
+          .invalid-feedback 數值超標
       tr
         th(scope="row") 2
         td 扣刀角度
+        td(data-min="" data-max="90") < 90
         td
-          input(type="text" placeholder="單位\(度\)").form-control
+          input.input_goted(type="text" placeholder="單位\(度\)").form-control
+          .invalid-feedback 數值超標
         td
-          input(type="text" placeholder="單位\(度\)").form-control
+          input.input_result(type="text" placeholder="單位\(度\)").form-control
+          .invalid-feedback 數值超標
       tr
         th(scope="row") 3
-        td 換刀移動量 115mm +0, +0.5
+        td 換刀移動量 115mm
+        td(data-min="115" data-max="115.5") + 0~0.5 mm
         td
-          input(type="text" placeholder="單位\(mm\)").form-control
+          input.input_goted(type="text" placeholder="單位\(mm\)").form-control
+          .invalid-feedback 數值超標
         td
-          input(type="text" placeholder="單位\(mm\)").form-control
+          input.input_result(type="text" placeholder="單位\(mm\)").form-control
+          .invalid-feedback 數值超標
       tr
         th(scope="row") 4
-        td 原點至扣刀點重複精度 ± 0.1mm
+        td 原點至扣刀點重複精度
+        td(data-min="-0.1" data-max="0.1") ± 0.1mm
         td
-          input(type="text" placeholder="單位\(mm\)").form-control
+          input.input_goted(type="text" placeholder="單位\(mm\)").form-control
+          .invalid-feedback 數值超標
         td
-          input(type="text" placeholder="單位\(mm\)").form-control
+          input.input_result(type="text" placeholder="單位\(mm\)").form-control
+          .invalid-feedback 數值超標
       tr
         th(scope="row") 5
-        td 一百八十度換刀平面差 ± 0.1mm
+        td 一百八十度換刀平面差
+        td(data-min="-0.1" data-max="0.1") ± 0.1mm
         td
-          input(type="text" placeholder="單位\(mm\)").form-control
+          input.input_goted(type="text" placeholder="單位\(mm\)").form-control
+          .invalid-feedback 數值超標
         td
-          input(type="text" placeholder="單位\(mm\)").form-control
+          input.input_result(type="text" placeholder="單位\(mm\)").form-control
+          .invalid-feedback 數值超標
       tr
         th(scope="row") 6
-        td 扣刀點與一百八十度分割精度 ± 0.15mm
+        td 扣刀點與一百八十度分割精度
+        td(data-min="-0.15" data-max="0.15") ± 0.15mm
         td
-          input(type="text" placeholder="單位\(mm\)").form-control
+          input.input_goted(type="text" placeholder="單位\(mm\)").form-control
+          .invalid-feedback 數值超標
         td
-          input(type="text" placeholder="單位\(mm\)").form-control
+          input.input_result(type="text" placeholder="單位\(mm\)").form-control
+          .invalid-feedback 數值超標
       tr
         th(scope="row") 7
         td 原點位置矯正
+        td 
         td
-          input(type="text").form-control
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_7_1" value="true")#radio_7_1_1.form-check-input
+            label(for="radio_7_1_1").form-check-label O
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_7_1" value="false")#radio_7_1_2.form-check-input
+            label(for="radio_7_1_2").form-check-label X
         td
-          input(type="text").form-control
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_7_2" value="true")#radio_7_2_1.form-check-input
+            label(for="radio_7_2_1").form-check-label O
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_7_2" value="false")#radio_7_2_2.form-check-input
+            label(for="radio_7_2_2").form-check-label X
       tr
         th(scope="row") 8
         td 煞車釋放，手動運轉是否順暢
+        td 
         td
-          input(type="text").form-control
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_8_1" value="true")#radio_8_1_1.form-check-input
+            label(for="radio_8_1_1").form-check-label O
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_8_1" value="false")#radio_8_1_2.form-check-input
+            label(for="radio_8_1_2").form-check-label X
         td
-          input(type="text").form-control
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_8_2" value="true")#radio_8_2_1.form-check-input
+            label(for="radio_8_2_1").form-check-label O
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_8_2" value="false")#radio_8_2_2.form-check-input
+            label(for="radio_8_2_2").form-check-label X
       tr
         th(scope="row") 9
         td 無負載連續運轉有無異音
+        td 
         td
-          input(type="text").form-control
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_9_1" value="true")#radio_9_1_1.form-check-input
+            label(for="radio_9_1_1").form-check-label O
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_9_1" value="false")#radio_9_1_2.form-check-input
+            label(for="radio_9_1_2").form-check-label X
         td
-          input(type="text").form-control
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_9_2" value="true")#radio_9_2_1.form-check-input
+            label(for="radio_9_2_1").form-check-label O
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_9_2" value="false")#radio_9_2_2.form-check-input
+            label(for="radio_9_2_2").form-check-label X
       tr
         th(scope="row") 10
         td 負載運轉有無振動掛刀 7kg (300mm 長) x 1
+        td 
         td
-          input(type="text").form-control
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_10_1" value="true")#radio_10_1_1.form-check-input
+            label(for="radio_10_1_1").form-check-label O
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_10_1" value="false")#radio_10_1_2.form-check-input
+            label(for="radio_10_1_2").form-check-label X
         td
-          input(type="text").form-control
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_10_2" value="true")#radio_10_2_1.form-check-input
+            label(for="radio_10_2_1").form-check-label O
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_10_2" value="false")#radio_10_2_2.form-check-input
+            label(for="radio_10_2_2").form-check-label X
       tr
         th(scope="row") 11
-          td 分解動作運轉，近接開關檢驗
-          td
-            input(type="text").form-control
-          td
-            input(type="text").form-control
+        td 分解動作運轉，近接開關檢驗
+        td
+        td
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_11_1" value="true")#radio_11_1_1.form-check-input
+            label(for="radio_11_1_1").form-check-label O
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_11_1" value="false")#radio_11_1_2.form-check-input
+            label(for="radio_11_1_2").form-check-label X
+        td
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_11_2" value="true")#radio_11_2_1.form-check-input
+            label(for="radio_11_2_1").form-check-label O
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_11_2" value="false")#radio_11_2_2.form-check-input
+            label(for="radio_11_2_2").form-check-label X
       tr
         th(scope="row") 11
-          td 馬達運轉制動測試
-          td
-            input(type="text").form-control
-          td
-            input(type="text").form-control
+        td 馬達運轉制動測試
+        td
+        td
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_12_1" value="true")#radio_12_1_1.form-check-input
+            label(for="radio_12_1_1").form-check-label O
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_12_1" value="false")#radio_12_1_2.form-check-input
+            label(for="radio_12_1_2").form-check-label X
+        td
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_12_2" value="true")#radio_12_2_1.form-check-input
+            label(for="radio_12_2_1").form-check-label O
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_12_2" value="false")#radio_12_2_2.form-check-input
+            label(for="radio_12_2_2").form-check-label X
       tr
         th(scope="row") 12
-          td 外觀尺寸孔位檢查
-          td
-            input(type="text").form-control
-          td
-            input(type="text").form-control
+        td 外觀尺寸孔位檢查
+        td
+        td
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_12_1" value="true")#radio_12_1_1.form-check-input
+            label(for="radio_12_1_1").form-check-label O
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_12_1" value="false")#radio_12_1_2.form-check-input
+            label(for="radio_12_1_2").form-check-label X
+        td
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_12_2" value="true")#radio_12_2_1.form-check-input
+            label(for="radio_12_2_1").form-check-label O
+          .form-check.form-check-inline
+            input(type="radio" name="radi_option_12_2" value="false")#radio_12_2_2.form-check-input
+            label(for="radio_12_2_2").form-check-label X
       tr
         th(scope="row") 13
-          td 
-            | ATC 於原點位置之間隙 < 0.2mm
-            br
-            | (30kg 正向施力放鬆後，量錶歸零反向施力，放鬆後讀取)
-          td
-            input(type="text" placeholder="單位\(mm\)").form-control
-          td
-            input(type="text" placeholder="單位\(mm\)").form-control
+        td 
+          | ATC 於原點位置之間隙 < 0.2mm
+          br
+          | (30kg 正向施力放鬆後，量錶歸零反向施力，放鬆後讀取)
+        td(data-min="" data-max="0.2") < 0.2mm
+        td
+          input.input_goted(type="text" placeholder="單位\(mm\)").form-control
+          .invalid-feedback 數值超標
+        td
+          input.input_result(type="text" placeholder="單位\(mm\)").form-control
+          .invalid-feedback 數值超標
       tr
         th(scope="row") 14
           td ATC 連續運轉測試 1000次馬達之溫升 < 60˚C
+          td(data-min="" data-max="60") < 60˚C
           td
-            input(type="text" placeholder="單位\(˚C\)").form-control
+            input.input_goted(type="text" placeholder="單位\(˚C\)").form-control
+            .invalid-feedback 數值超標
           td
-            input(type="text" placeholder="單位\(˚C\)").form-control
+            input.input_result(type="text" placeholder="單位\(˚C\)").form-control
+            .invalid-feedback 數值超標
       tr
         th(scope="row") 15
           td ATC 於扣刀處點上下位移量 < 0.5mm
+          td(data-min="" data-max="0.5") < 0.5mm
           td
-            input(type="text" placeholder="單位\(mm\)").form-control
+            input.input_goted(type="text" placeholder="單位\(mm\)").form-control
+            .invalid-feedback 數值超標
           td
-            input(type="text" placeholder="單位\(mm\)").form-control
+            input.input_result(type="text" placeholder="單位\(mm\)").form-control
+            .invalid-feedback 數值超標
       tr
         th(scope="row") 16
           td 一百八十度新軸偏擺 ≤ 0.04mm
+          td(data-min="" data-max="0.04001") ≤ 0.04mm
           td
-            input(type="text" placeholder="單位\(mm\)").form-control
+            input.input_goted(type="text" placeholder="單位\(mm\)").form-control
+            .invalid-feedback 數值超標
           td
-            input(type="text" placeholder="單位\(mm\)").form-control
+            input.input_result(type="text" placeholder="單位\(mm\)").form-control
+            .invalid-feedback 數值超標
       tr
         th(scope="row") 17
           td 馬達運轉負載
+          td(data-min="" data-max="2.3") 2.3 安培
           td
-            input(type="text" placeholder="單位\(安培\)").form-control
+            input.input_goted(type="text" placeholder="單位\(安培\)").form-control
+            .invalid-feedback 數值超標
           td
-            input(type="text" placeholder="單位\(安培\)").form-control
+            input.input_result(type="text" placeholder="單位\(安培\)").form-control
+            .invalid-feedback 數值超標
   hr
   .row
     .mx-auto

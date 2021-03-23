@@ -1,18 +1,27 @@
-$("#input_1_1").bind("input propertychange", function() {
-  const value = $(this).val();
-  if (value > 2) {
-    $("#th_1").addClass("table-warning");
-  } else {
-    $("#th_1").removeClass("table-warning");
-  };
-});
+const validateAndChangeCss = (tagetDOM, gotedValue, maxValue, minValue) => {
+  gotedValue = parseFloat(gotedValue);
+  maxValue = parseFloat(maxValue);
+  minValue = parseFloat(minValue);
+  (gotedValue > maxValue || gotedValue < minValue) ?
+    $(tagetDOM).addClass("is-invalid") : $(tagetDOM).removeClass("is-invalid")
+}
 
-$("#input_1_2").bind("input propertychange", function() {
-  const value = $(this).val();
-  const pre_value = $("#input_1_1").val();
-  if (value.length > 0 && value > pre_value) {
-    $("#th_1").addClass("table-danger");
-  } else {
-    $("#th_1").removeClass("table-danger");
-  };
-});
+// bind
+
+$(".input_goted").each(function(){
+  $(this).bind("input propertychange", function() {
+    const gotedValue = $(this).val();
+    const maxValue = $(this).parent().prev().data("max");
+    const minValue = $(this).parent().prev().data("min");
+    validateAndChangeCss(this, gotedValue, maxValue, minValue)
+  })
+})
+
+$(".input_result").each(function(){
+  $(this).bind("input propertychange", function() {
+    const gotedValue = $(this).val();
+    const maxValue = $(this).parent().prev().prev().data("max");
+    const minValue = $(this).parent().prev().prev().data("min");
+    validateAndChangeCss(this, gotedValue, maxValue, minValue)
+  })
+})
