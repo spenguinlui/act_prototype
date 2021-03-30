@@ -1,3 +1,47 @@
 extends ../layout.pug
 block content
-  h1 滾子組接觸紀錄
+  include ../breadcrumb.pug
+  h1.text-center 滾子組接觸紀錄
+  p.text-center (檢查工段 -> 前段)
+  p.text-center 有接觸： Ｏ    未接觸： Ｘ
+  .d-flex.justify-content-around
+    .px-3
+      h5.text-center(style="width: 400px;") 24 分割用表格
+      .d-flex.flex-column.flex-wrap.bg-dark(style="width: 400px; height: 1350px")
+        - for (let x = 0, i = 0; i < 125; x ++, i++)
+          if x == 24
+            - x = 0
+          div(style="width: 80px")
+            div.border.bg-light.text-center= x + 1
+            div.border
+              input(type="text").w-100.border-0.text-center.text-primary
+      .p-5
+        p 接觸 4個：
+          input(type="text" style="width: 30px").mr-1
+          |  / 24
+        p 接觸 3個：
+          input(type="text" style="width: 30px").mr-1
+          |  / 24
+        p 接觸 2個：
+          input(type="text" style="width: 30px").mr-1
+          |  / 24
+    .px-3
+      h5.text-center(style="width: 400px;") 20 分割用表格
+      .d-flex.flex-column.flex-wrap.bg-dark(style="width: 400px; height: 1350px")
+          - for (let x = 0, i = 0; i < 125; x ++, i++)
+            if x == 24
+              - x = 0
+            div(style="width: 80px")
+              div.border.bg-light.text-center= x + 1
+              div.border
+                input(type="text").w-100.border-0.text-center.text-primary
+      .p-5
+        p 接觸 4個：
+          input(type="text" style="width: 30px").mr-1
+          |  / 20
+        p 接觸 3個：
+          input(type="text" style="width: 30px").mr-1
+          |  / 20
+        p 接觸 2個：
+          input(type="text" style="width: 30px").mr-1
+          |  / 20
