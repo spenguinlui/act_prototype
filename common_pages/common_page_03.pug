@@ -1,3 +1,28 @@
 extends ../layout.pug
 block content
-  h1 滾子組排序
+  include ../breadcrumb.pug
+  h1.text-center 滾子組排序
+  p.text-center 軸向 
+    input(type="text" style="width: 30px" value="A").text-center
+    |  (檢查工段 -> 前段)
+  .d-flex.flex-column.align-items-center
+    .col-6
+      img(src="../images/image_1.jpg", alt="", srcset="").w-100
+    .col-12.my-4
+      .d-flex.flex-wrap
+        - for (let i = 0; i < 24; i++)
+          .d-flex.p-2
+            div(style="width: 30px").text-center!= '&#' + (65 + i) + ';'
+            input(type="text" style="width: 30px")
+    .col-6
+      img(src="../images/image_2.jpg", alt="", srcset="").w-100
+    .col-12.my-4
+      .d-flex.flex-wrap
+        - for (let i = 0; i < 20; i++)
+          .d-flex.p-2
+            div(style="width: 30px").text-center!= '&#' + (65 + i) + ';'
+            input(type="text" style="width: 30px")
+  hr
+  .row
+    .mx-auto
+      button(type="button").btn.btn-primary 完成填寫
