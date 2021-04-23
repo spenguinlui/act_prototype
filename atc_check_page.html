@@ -38,6 +38,22 @@ $('#page_03_select_lists_2').on('change', function() {
   set_list_value(20, target_input[0]);
 })
 
+// 滾子組接觸紀錄
+$('.input_check').each(function(){
+  $(this).on('click', function() {
+    if ($(this).val() !== 'O') {
+      $(this).val('O');
+      $(this).addClass("text-primary");
+      $(this).removeClass("text-danger");
+    }
+    else {
+      $(this).val('X');
+      $(this).removeClass("text-primary");
+      $(this).addClass("text-danger");
+    }
+  })
+})
+
 
 // 初始化
 $(function(){
