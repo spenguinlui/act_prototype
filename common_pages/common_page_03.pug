@@ -3,7 +3,10 @@ block content
   include ../breadcrumb.pug
   h1.text-center 滾子組排序
   p.text-center 軸向 
-    input(type="text" style="width: 30px" value="A").text-center
+    select#page_03_select_lists_1(style="width: 35px").text-center
+      - for (let i = 0; i < 24; i ++)
+        option(value!='input_24_'+'&#' + (65 + i) + ';')!='&#' + (65 + i) + ';'
+        
     |  (檢查工段 -> 前段)
   .d-flex.flex-column.align-items-center
     .col-6
@@ -13,7 +16,12 @@ block content
         - for (let i = 0; i < 24; i++)
           .d-flex.p-2
             div(style="width: 30px").text-center!= '&#' + (65 + i) + ';'
-            input(type="text" style="width: 30px")
+            input(type="text" style="width: 30px" name!='input_24_'+'&#' + (65 + i) + ';')
+    p.text-center 軸向 
+      select#page_03_select_lists_2(style="width: 35px").text-center
+        - for (let i = 0; i < 20; i ++)
+          option(value!='input_20_'+'&#' + (65 + i) + ';')!='&#' + (65 + i) + ';'
+          
     .col-6
       img(src="../images/image_2.jpg", alt="", srcset="").w-100
     .col-12.my-4
@@ -21,8 +29,10 @@ block content
         - for (let i = 0; i < 20; i++)
           .d-flex.p-2
             div(style="width: 30px").text-center!= '&#' + (65 + i) + ';'
-            input(type="text" style="width: 30px")
+            input(type="text" style="width: 30px" name!='input_20_'+'&#' + (65 + i) + ';')
   hr
   .row
     .mx-auto
       button(type="button").btn.btn-primary 完成填寫
+  script
+    include ../form.js
